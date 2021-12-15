@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <a href="index" style="text-decoration: none;">
+        <h1 class="title">Tin tức 24h</h1>
+      </a>
+      <form action="index" method="post" class="search">
+        <input type="text" name="search" />
+        <input type="submit" value="Tìm" style="margin-left: -5px;" />
+      </form>
+
+      <div class="container-fluid navig">
+        <div id="nav" class="row">
+          {%for loai in loaitins%}
+          <a href="index?id={{loai.id}}" class="col-sm-2">{{loai.tenloai}}</a>
+          {%endfor%}
+        </div>
+        <hr />
+      </div>
+    </div>
+
+    <br />
+    <div id="body-content">
+      <div class="item-content">
+        <br />
+        {%for tin in tins%}
+        <div class="content container-fluid">
+          <div class="row">
+            <div class="img col-sm-8">
+              <img src="{{tin.images}}" alt="" />
+            </div>
+            <div class="text col-sm-4">
+              <a href="detail?id={{tin.id}}" class="title1">{{tin.title}}</a>
+              <p class="tomtat">{{tin.tomtat}}</p>
+              <p class="date-content"></p>
+            </div>
+          </div>
+        </div>
+        <br />
+        {%endfor%}
+      </div>
+    </div>
+    <br />
+  </body>
+</html>
+<!--  -->

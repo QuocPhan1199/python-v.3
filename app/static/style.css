@@ -1,0 +1,132 @@
+html{
+    scroll-behavior: smooth;
+}
+#header{
+    background-color: #009cd7;
+    position: relative;
+    margin-top:0px;
+    position: fixed;
+    top: 0;
+    right:0;
+    left: 0;
+    z-index: 1;
+}
+#header .title{
+    height: 60px;
+    padding-top: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    color: #fff;
+    margin-left: 50px;
+    margin-top: 0;
+    font-size: 50px ;
+}
+
+#header .log {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    font-size: 17px;
+}
+#header .log a{
+    color:#fff;
+}
+#header .title a{
+    display: inline-block;
+}
+#header .navig{
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+#header .navig a{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    border-left: 2px solid #ddd;
+    
+}
+#header .log:hover a{
+    opacity: 70%;
+    text-decoration: none;
+}
+#header .navig a:hover{
+    color: #009cd7 ;
+    text-decoration: none;
+}
+.search{
+    position: absolute;
+    top: 22px;
+    right: 262px;
+    font-size: 16px;
+}
+
+#body-content{
+    padding-top: 200px;
+}
+
+.content{
+    max-width:1000px;
+    height:400px;
+    background:#f7f7f7;
+    
+}
+.content img{
+    max-height:400px;
+    display:block;
+    
+}
+.content .img{
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+.theme{
+    font-size: 42px;
+    text-decoration: none;
+    color: #867428;
+    font-family: "Merriweather",serif;
+    font-weight: 700;
+    margin-left: 280px;
+}
+.theme:hover{
+    opacity:80%;
+    text-decoration: none;
+}
+.content .text{
+    padding-top:15px;
+}
+.content .title1{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+.content .tomtat{
+    padding-top:15px;
+}
+.content .date-content{
+    color: #000;
+}
+
+#content{
+    width:750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+}
+#content .title-content{
+    font-size: 35px;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+}
+#content .paragraph{
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+#content img{
+    max-width:750px;
+}
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="header">
+      <a href="/index" style="text-decoration: none;">
+        <h1 class="title">Tin tức 24h</h1>
+      </a>
+      <form action="index" method="post" class="search">
+        <input type="text" name="search" />
+        <input type="submit" value="Tìm" style="margin-left: -5px;" />
+      </form>
+      <div class="container-fluid navig">
+        <div id="nav" class="row">
+          {%for loai in loaitins%}
+          <a href="index?id={{loai.id}}" class="col-sm-2">
+            {{loai.tenloai}}
+          </a>
+          {%endfor%}
+        </div>
+        <hr />
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="title-content">
+        <p>{{tins.title}}</p>
+      </div>
+      <div class="paragraph">
+        <p>{{tins.tomtat}}</p>
+      </div>
+      <img src="{{tins.images}}" alt="" />
+      <div class="paragraph">
+        <div class="paragraph">
+          <p>{{tins.content}}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
