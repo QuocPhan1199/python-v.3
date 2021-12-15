@@ -2,8 +2,9 @@ from flask import render_template
 from flask.helpers import flash
 from flask import  url_for
 from werkzeug.wrappers import request
+from wtforms.validators import Email
 from app import app
-from app.forms import LoaiTinForm, TinForm,LoginForm
+from app.forms import LoaiTinForm, TinForm,LoginForm,RegisterForm
 from app import db
 from app.models import User
 from app.models import LoaiTin, Tin,User
@@ -52,6 +53,29 @@ def login():
 def logout():
     logout_user()
     return redirect('/login')
+
+@app.route('/register', methods=['GET','POST'])
+def register():
+    #if current_user.is_authenticated:
+    #    return redirect('/loaitin')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user1 = User.query.filter_by(username=form.username.data).first();
+        user = User.query.filter_by(email=form.email.data).first();
+        
+        if user or user1:
+           flash('email là đã tồn tại! Hãy nhập lại')
+           return redirect('/register')
+        if form.confirmpassword.data != form.password.data:
+            flash("Mật khẩu không trùng khớp yêu cầu nhập lại !")
+            return redirect('/register')
+        else:
+            newu = User(username=form.username.data,email=form.email.data,password=form.password.data)
+            db.session.add(newu)
+            db.session.commit()
+            flash("Đăng ký thành công !")
+            return redirect('/loaitin')
+    return render_template('admin/register.html', form=form)   
 @app.route('/loaitin',methods = ['GET', 'POST'])
 @login_required
 def loaitin():

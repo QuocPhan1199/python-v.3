@@ -10,6 +10,12 @@ class LoginForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired()])
     password = PasswordField("Password",validators=[DataRequired()])
     submit = SubmitField("Submit")
+class RegisterForm(FlaskForm):
+    username = StringField("username", validators=[DataRequired()])
+    email = StringField("email", validators=[DataRequired()])
+    password = PasswordField("password",validators=[DataRequired()])
+    confirmpassword = PasswordField("confirmpassword",validators=[DataRequired()])
+    submit = SubmitField("Submit")
 class LoaiTinForm(FlaskForm):
     tenloai = StringField('Tenloai', validators=[DataRequired()])
     submit = SubmitField('Submit')
